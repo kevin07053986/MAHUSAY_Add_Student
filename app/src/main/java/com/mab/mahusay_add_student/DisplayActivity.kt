@@ -20,13 +20,13 @@ class DisplayActivity : AppCompatActivity() {
         val date = intent.getStringExtra("DATE_KEY")
         val email = intent.getStringExtra("EMAIL_KEY")
 
-        findViewById<TextView>(R.id.editTextName).text = name
-        findViewById<TextView>(R.id.editTextID).text = id
-        findViewById<TextView>(R.id.editTextCourse).text = course
-        findViewById<TextView>(R.id.editTextYrLvl).text = year
-        findViewById<TextView>(R.id.editTextAddress).text = address
-        findViewById<TextView>(R.id.editTextDate).text = date
-        findViewById<TextView>(R.id.editTextEmailAddress).text = email
+        findViewById<TextView>(R.id.dispTextName).text = name
+        findViewById<TextView>(R.id.dispTextID).text = id
+        findViewById<TextView>(R.id.dispTextCourse).text = course
+        findViewById<TextView>(R.id.dispTextYrLvl).text = year
+        findViewById<TextView>(R.id.dispTextAddress).text = address
+        findViewById<TextView>(R.id.dispTextDate).text = date
+        findViewById<TextView>(R.id.dispTextEmailAddress).text = email
 
         val buttonAdd = findViewById<Button>(R.id.buttonAdd)
         buttonAdd.setOnClickListener {

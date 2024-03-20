@@ -22,46 +22,27 @@ class AddActivity : AppCompatActivity() {
 
             val editTextID = findViewById<EditText>(R.id.editTextID)
             val idNum = editTextID.text.toString()
-            if (idNum.isNotEmpty()) {
+            if (idNum.isEmpty()) {
                 // Convert the input to an integer
-                val id = idNum.toIntOrNull()
-
-                // Check if the conversion was successful and the number is less than 5
-                if (idNum != null) {
-                    // Input is a valid number and less than 5
-                    // You can proceed with further actions here
-                    // For example, display a success message
-                    Toast.makeText(this, "Please enter ID Number", Toast.LENGTH_SHORT).show()
-                }
-            } else {
-                // Input is empty
-                // Display an error message
-                Toast.makeText(this, "Year ID Number cannot be empty", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please enter ID Number", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
 
             val course = binding.editTextCourse.text.toString()
 
             val editTextYear = findViewById<EditText>(R.id.editTextYrLvl)
             val year = editTextYear.text.toString()
-            if (year.isNotEmpty()) {
-                // Convert the input to an integer
-                val yrLvl = year.toIntOrNull()
-
-                // Check if the conversion was successful and the number is less than 5
-                if (yrLvl != null && yrLvl <= 5) {
-                    // Input is a valid number and less than 5
-                    // You can proceed with further actions here
-                    // For example, display a success message
-                    Toast.makeText(this, "Enter your year level", Toast.LENGTH_SHORT).show()
-                } else {
-                    // Input is either not a number or greater than 5
-                    // Display an error message
-                    Toast.makeText(this, "Please enter your year level", Toast.LENGTH_SHORT).show()
-                }
+            if (year.isEmpty()) {
+                Toast.makeText(this, "Please enter your year level", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             } else {
-                // Input is empty
-                // Display an error message
-                Toast.makeText(this, "Year level cannot be empty", Toast.LENGTH_SHORT).show()
+                // Input is not empty, check if it exceeds 5
+                val yrLvl = year.toIntOrNull()
+                if (yrLvl == null || yrLvl > 5) {
+                    // Input is either not a number or greater than 5
+                    Toast.makeText(this, "Year level: 1 to 5.", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
             }
 
             val address = binding.editTextAddress.text.toString()

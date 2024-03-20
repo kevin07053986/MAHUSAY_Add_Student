@@ -29,6 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="Name:"
+        android:textStyle="bold"
+        android:textSize="18dp"
         app:layout_constraintEnd_toStartOf="@+id/textView"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,8 +40,10 @@
         android:id="@+id/textViewID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="36dp"
         android:text="ID Number:"
+        android:textStyle="bold"
+        android:textSize="18dp"
         app:layout_constraintStart_toStartOf="@+id/textViewName"
         app:layout_constraintTop_toBottomOf="@+id/textViewName" />
 
@@ -47,8 +51,10 @@
         android:id="@+id/textViewCourse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="34dp"
         android:text="Course: "
+        android:textStyle="bold"
+        android:textSize="18dp"
         app:layout_constraintStart_toStartOf="@+id/textViewID"
         app:layout_constraintTop_toBottomOf="@+id/textViewID" />
 
@@ -56,8 +62,10 @@
         android:id="@+id/textViewYear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="34dp"
         android:text="Year Level: "
+        android:textStyle="bold"
+        android:textSize="18dp"
         app:layout_constraintStart_toStartOf="@+id/textViewCourse"
         app:layout_constraintTop_toBottomOf="@+id/textViewCourse" />
 
@@ -65,8 +73,10 @@
         android:id="@+id/textViewAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="34dp"
         android:text="Address: "
+        android:textStyle="bold"
+        android:textSize="18dp"
         app:layout_constraintStart_toStartOf="@+id/textViewYear"
         app:layout_constraintTop_toBottomOf="@+id/textViewYear" />
 
@@ -74,8 +84,10 @@
         android:id="@+id/textViewBDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="34dp"
         android:text="Birthday: "
+        android:textStyle="bold"
+        android:textSize="18dp"
         app:layout_constraintStart_toStartOf="@+id/textViewAddress"
         app:layout_constraintTop_toBottomOf="@+id/textViewAddress" />
 
@@ -83,8 +95,10 @@
         android:id="@+id/textViewEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="34dp"
         android:text="Email:"
+        android:textStyle="bold"
+        android:textSize="18dp"
         app:layout_constraintStart_toStartOf="@+id/textViewBDay"
         app:layout_constraintTop_toBottomOf="@+id/textViewBDay" />
 
@@ -104,12 +118,13 @@
 
     <EditText
         android:id="@+id/editTextName"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Full Name"
         android:inputType="text"
+        android:textColorHint="#B5AFAF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toEndOf="@+id/textViewName"
@@ -117,12 +132,13 @@
 
     <EditText
         android:id="@+id/editTextID"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Enter ID Number"
         android:inputType="number"
+        android:textColorHint="#B5AFAF"
         app:layout_constraintEnd_toEndOf="@+id/editTextName"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textViewID"
@@ -130,12 +146,13 @@
 
     <EditText
         android:id="@+id/editTextCourse"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Enter Course"
         android:inputType="text"
+        android:textColorHint="#B5AFAF"
         app:layout_constraintEnd_toEndOf="@+id/editTextID"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textViewCourse"
@@ -143,12 +160,13 @@
 
     <EditText
         android:id="@+id/editTextYrLvl"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="1"
         android:inputType="number"
+        android:textColorHint="#B5AFAF"
         app:layout_constraintEnd_toEndOf="@+id/editTextCourse"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textViewYear"
@@ -156,12 +174,13 @@
 
     <EditText
         android:id="@+id/editTextAddress"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="City Only"
         android:inputType="text"
+        android:textColorHint="#B5AFAF"
         app:layout_constraintEnd_toEndOf="@+id/editTextYrLvl"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textViewAddress"
@@ -169,12 +188,13 @@
 
     <EditText
         android:id="@+id/editTextDate"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="date"
         android:hint="00/00/0000"
+        android:textColorHint="#B5AFAF"
         app:layout_constraintEnd_toEndOf="@+id/editTextAddress"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textViewBDay"
@@ -182,12 +202,13 @@
 
     <EditText
         android:id="@+id/editTextEmailAddress"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textEmailAddress"
         android:hint="Enter your email"
+        android:textColorHint="#B5AFAF"
         app:layout_constraintEnd_toEndOf="@+id/editTextDate"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textViewEmail"
