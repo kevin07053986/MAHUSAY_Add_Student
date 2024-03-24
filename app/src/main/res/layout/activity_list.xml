@@ -36,18 +36,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1"
         android:gravity="center"
-        android:background="#0000FF">
+        android:background="#0000FF"
+        android:elevation="2dp">
 
         <Button
             android:id="@+id/buttonAdd"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:background="@drawable/ripple_effect"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="80dp"
+            android:background="@drawable/add_icon"
             android:backgroundTint="@color/cyan"
-            android:text="Add more"
             android:textAllCaps="false"
             android:textSize="15dp"
             />
+
+        <Button
+            android:id="@+id/buttonHome"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/home_icon"
+            android:backgroundTint="@color/cyan"
+            android:textAllCaps="false"
+            android:textSize="15dp" />
 
     </LinearLayout>
 
@@ -59,7 +69,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textviewList" />
+        app:layout_constraintTop_toBottomOf="@id/textviewList"
+        android:scrollbars="vertical"/>
 
     <TextView
         android:id="@+id/displayText"
@@ -69,6 +80,5 @@
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/listView" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

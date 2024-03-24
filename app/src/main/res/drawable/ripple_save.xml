@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Your existing ripple effect and shape -->
+    <ripple xmlns:android="http://schemas.android.com/apk/res/android"
+        android:color="#03045e">
+
+        <item>
+            <shape android:shape="rectangle">
+
+                <solid android:color="@color/white"/>
+                <corners android:radius="220dp"/>
+
+            </shape>
+            <text>
+                <solid android:color="@color/white"/>
+            </text>
+        </item>
+
+    </ripple>
+
+    <!-- Your ImageView for displaying the image -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/save_icon"
+        android:scaleType="fitCenter"
+        android:padding="16dp"
+        android:background="@drawable/save_icon"
+        android:clickable="true"
+        android:focusable="true"
+    />
+
+</RelativeLayout>

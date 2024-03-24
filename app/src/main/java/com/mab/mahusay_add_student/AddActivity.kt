@@ -28,10 +28,22 @@ class AddActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please enter ID Number", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            if (isIdNumExists(idNum)) {
+                Toast.makeText(this, "ID Number already exists", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             val lname = binding.editTextLName.text.toString()
             val fname = binding.editTextFName.text.toString()
-            val phoneNum = binding.editTextPNum.text.toString()
+
+            val editTextPNum = findViewById<EditText>(R.id.editTextPNum)
+            val phoneNum = editTextPNum.text.toString()
+            if (phoneNum.isEmpty()) {
+                // Convert the input to an integer
+                Toast.makeText(this, "Please enter your Phone Number", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             val photo = binding.editTextPhoto.text.toString()
 
             saveStudentDataToSharedPreferences()
@@ -50,6 +62,15 @@ class AddActivity : AppCompatActivity() {
             val intent = Intent(this, ListActivity::class.java)
 
             startActivity(Intent(this, ListActivity::class.java))
+        }
+
+        binding.buttonClear.setOnClickListener {
+            // Clear the input fields
+            binding.editTextID.text.clear()
+            binding.editTextLName.text.clear()
+            binding.editTextFName.text.clear()
+            binding.editTextPNum.text.clear()
+            binding.editTextPhoto.text.clear()
         }
     }
     private fun saveStudentDataToSharedPreferences() {
@@ -74,6 +95,23 @@ class AddActivity : AppCompatActivity() {
         val editor = sharedPreferences.edit()
         editor.putString("students_list", gson.toJson(students))
         editor.apply()
+    }
+
+    private fun isIdNumExists(idNum: String): Boolean {
+        // Retrieve existing students from SharedPreferences
+        val sharedPreferences: SharedPreferences = getSharedPreferences("students", MODE_PRIVATE)
+        val gson = Gson()
+        val json: String? = sharedPreferences.getString("students_list", null)
+        val type = object : TypeToken<ArrayList<Student>>() {}.type
+        val students: ArrayList<Student> = gson.fromJson(json, type) ?: ArrayList()
+
+        // Check if the ID number already exists in the list
+        for (student in students) {
+            if (student.idNum == idNum) {
+                return true
+            }
+        }
+        return false
     }
 
 

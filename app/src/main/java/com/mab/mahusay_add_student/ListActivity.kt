@@ -33,7 +33,7 @@ class ListActivity : AppCompatActivity() {
         val lname = sharedPreferences.getString("LNAME_KEY", "")
         val fname = sharedPreferences.getString("FNAME_KEY", "")
         val phoneNum = sharedPreferences.getString("PHONE_KEY", "")
-        val photoUrl = sharedPreferences.getString("PHOTO_KEY", "")
+//        val photoUrl = sharedPreferences.getString("PHOTO_KEY", "")
 
 
 
@@ -47,16 +47,40 @@ class ListActivity : AppCompatActivity() {
                 putExtra("LNAME_KEY", clickedStudent?.lname)
                 putExtra("FNAME_KEY", clickedStudent?.fname)
                 putExtra("PHONE_KEY", clickedStudent?.phoneNum)
-                putExtra("PHOTO_KEY", clickedStudent?.photoUrl)
+//                putExtra("PHOTO_KEY", clickedStudent?.photoUrl)
                 // Add more data here if needed
             }
             startActivity(intent)
+        }
+
+        studentListView.setOnItemLongClickListener { parent, view, position, id ->
+            // Get the long-pressed student from the list
+            val longPressedStudent = students[position]
+
+            // Remove the long-pressed student from the list
+            students.removeAt(position)
+
+            // Update the list view after removing the item
+            updateListView()
+
+            // Save the updated list of students to SharedPreferences
+            saveStudentsToSharedPreferences()
+
+            // Return true to indicate that the long press event is consumed
+            true
         }
 
         val buttonAdd = findViewById<Button>(R.id.buttonAdd)
         buttonAdd.setOnClickListener {
             // Create an intent to start the AddActivity
             val intent = Intent(this, AddActivity::class.java)
+            startActivity(intent)
+        }
+
+        val buttonHome = findViewById<Button>(R.id.buttonHome)
+        buttonHome.setOnClickListener {
+            // Create an intent to start the AddActivity
+            val intent = Intent(this, ListActivity::class.java)
             startActivity(intent)
         }
     }
@@ -68,6 +92,15 @@ class ListActivity : AppCompatActivity() {
         students = gson.fromJson(json, type) ?: ArrayList()
 
         updateListView()
+    }
+
+    private fun saveStudentsToSharedPreferences() {
+        val sharedPreferences: SharedPreferences = getSharedPreferences("students", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        val gson = Gson()
+        val json = gson.toJson(students)
+        editor.putString("students_list", json)
+        editor.apply()
     }
 
     private fun updateListView() {

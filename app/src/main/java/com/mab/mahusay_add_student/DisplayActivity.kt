@@ -12,6 +12,8 @@ import com.squareup.picasso.Picasso
 
 class DisplayActivity : AppCompatActivity() {
 
+    private lateinit var imageView: ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_display)
@@ -22,8 +24,8 @@ class DisplayActivity : AppCompatActivity() {
         val phoneNum = intent.getStringExtra("PHONE_KEY")
         val photoUrl = intent.getStringExtra("PHOTO_KEY")
 
-//        val imageView = findViewById<ImageView>(R.id.dispImage)
-//        Picasso.get().load(photoUrl).into(imageView)
+        imageView = findViewById<ImageView>(R.id.dispImage)
+        Picasso.get().load(photoUrl).into(imageView)
 
         findViewById<TextView>(R.id.dispTextID).text = id
         findViewById<TextView>(R.id.dispTextName).text = lname + ", " + fname
@@ -51,7 +53,7 @@ class DisplayActivity : AppCompatActivity() {
         val buttonAdd = findViewById<Button>(R.id.buttonAdd)
         buttonAdd.setOnClickListener {
             // Create an intent to start the AddActivity
-            val intent = Intent(this, AddActivity::class.java)
+            val intent = Intent(this, ListActivity::class.java)
             startActivity(intent)
         }
 
