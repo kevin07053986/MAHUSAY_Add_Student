@@ -1,12 +1,14 @@
 package com.mab.mahusay_add_student
 
+import android.content.SharedPreferences
 import android.content.Intent
 import android.os.Bundle
-import android.util.Patterns
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.mab.mahusay_add_student.databinding.ActivityAddBinding
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 class AddActivity : AppCompatActivity() {
 
@@ -18,7 +20,6 @@ class AddActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonSave.setOnClickListener {
-            val name = binding.editTextName.text.toString()
 
             val editTextID = findViewById<EditText>(R.id.editTextID)
             val idNum = editTextID.text.toString()
@@ -28,46 +29,52 @@ class AddActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val course = binding.editTextCourse.text.toString()
+            val lname = binding.editTextLName.text.toString()
+            val fname = binding.editTextFName.text.toString()
+            val phoneNum = binding.editTextPNum.text.toString()
+            val photo = binding.editTextPhoto.text.toString()
 
-            val editTextYear = findViewById<EditText>(R.id.editTextYrLvl)
-            val year = editTextYear.text.toString()
-            if (year.isEmpty()) {
-                Toast.makeText(this, "Please enter your year level", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            } else {
-                // Input is not empty, check if it exceeds 5
-                val yrLvl = year.toIntOrNull()
-                if (yrLvl == null || yrLvl > 5) {
-                    // Input is either not a number or greater than 5
-                    Toast.makeText(this, "Year level: 1 to 5.", Toast.LENGTH_SHORT).show()
-                    return@setOnClickListener
-                }
-            }
+            saveStudentDataToSharedPreferences()
 
-            val address = binding.editTextAddress.text.toString()
-            val date = binding.editTextDate.text.toString()
+            // Save the student data to SharedPreferences
+            val sharedPreferences = getSharedPreferences("student_data", MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.putString("ID_KEY", idNum)
+            editor.putString("LNAME_KEY", lname)
+            editor.putString("FNAME_KEY", fname)
+            editor.putString("PHONE_KEY", phoneNum)
+            editor.putString("PHOTO_KEY", photo)
+            editor.apply()
 
+            // Redirect to ListActivity
+            val intent = Intent(this, ListActivity::class.java)
 
-            val email = binding.editTextEmailAddress.text.toString()
-            if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                // Display an error message
-                Toast.makeText(this, "Invalid email address", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener // Exit the function if the email is invalid
-            }
-
-
-            val intent = Intent(this, DisplayActivity::class.java)
-            intent.putExtra("NAME_KEY", name)
-            intent.putExtra("ID_KEY", idNum)
-            intent.putExtra("COURSE_KEY", course)
-            intent.putExtra("YEAR_KEY", year)
-            intent.putExtra("ADDRESS_KEY", address)
-            intent.putExtra("DATE_KEY", date)
-            intent.putExtra("EMAIL_KEY", email)
-
-//            intent.putExtra("PASSWORD_KEY", password)
-            startActivity(intent)
+            startActivity(Intent(this, ListActivity::class.java))
         }
     }
+    private fun saveStudentDataToSharedPreferences() {
+
+        val idNum = binding.editTextID.text.toString()
+        val lname = binding.editTextLName.text.toString()
+        val fname = binding.editTextFName.text.toString()
+        val phoneNum = binding.editTextPNum.text.toString()
+        val photo = binding.editTextPhoto.text.toString()
+
+        // Retrieve existing students from SharedPreferences
+        val sharedPreferences: SharedPreferences = getSharedPreferences("students", MODE_PRIVATE)
+        val gson = Gson()
+        val json: String? = sharedPreferences.getString("students_list", null)
+        val type = object : TypeToken<ArrayList<Student>>() {}.type
+        val students: ArrayList<Student> = gson.fromJson(json, type) ?: ArrayList()
+
+        // Add new student to the list
+        students.add(Student(idNum, lname, fname, phoneNum, photo))
+
+        // Save updated student list back to SharedPreferences
+        val editor = sharedPreferences.edit()
+        editor.putString("students_list", gson.toJson(students))
+        editor.apply()
+    }
+
+
 }

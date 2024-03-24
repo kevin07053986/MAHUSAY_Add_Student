@@ -5,235 +5,159 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg1"
-    tools:context=".AddActivity">
+    tools:context=".DisplayActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         android:fontFamily="@font/amita"
         android:gravity="center"
         android:text="Details"
         android:textColor="#FDFBFB"
         android:textSize="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.053" />
-
-    <TextView
-        android:id="@+id/textViewName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Name:"
-        android:textColor="@color/darkblue"
-        android:textSize="20dp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.416"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/textViewID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="ID Number:"
-        android:textColor="@color/darkblue"
-        android:textSize="20dp"
-        android:textStyle="italic"
-        app:layout_constraintStart_toStartOf="@+id/textViewName"
-        app:layout_constraintTop_toBottomOf="@+id/textViewName" />
-
-    <TextView
-        android:id="@+id/textViewCourse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Course: "
-        android:textColor="@color/darkblue"
-        android:textSize="20dp"
-        android:textStyle="italic"
-        app:layout_constraintStart_toStartOf="@+id/textViewID"
-        app:layout_constraintTop_toBottomOf="@+id/textViewID" />
-
-    <TextView
-        android:id="@+id/textViewYear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Year Level: "
-        android:textColor="@color/darkblue"
-        android:textSize="20dp"
-        android:textStyle="italic"
-        app:layout_constraintStart_toStartOf="@+id/textViewCourse"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCourse" />
-
-    <TextView
-        android:id="@+id/textViewAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Address: "
-        android:textColor="@color/darkblue"
-        android:textSize="20dp"
-        android:textStyle="italic"
-        app:layout_constraintStart_toStartOf="@+id/textViewYear"
-        app:layout_constraintTop_toBottomOf="@+id/textViewYear" />
-
-    <TextView
-        android:id="@+id/textViewBDay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Birthday:"
-        android:textStyle="italic"
-        android:textColor="@color/darkblue"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="@+id/textViewAddress"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAddress" />
-
-    <TextView
-        android:id="@+id/textViewEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Email:"
-        android:textColor="@color/darkblue"
-        android:textSize="20dp"
-        android:textStyle="italic"
-        app:layout_constraintStart_toStartOf="@+id/textViewBDay"
-        app:layout_constraintTop_toBottomOf="@+id/textViewBDay" />
-
-    <Button
-        android:id="@+id/buttonAdd"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Add more"
-        android:textSize="25dp"
-        android:background="@drawable/ripple_effect"
-        android:backgroundTint="@color/cyan"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
-
-    <TextView
-        android:id="@+id/dispTextName"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:fontFamily="@font/archivo"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="21dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toEndOf="@+id/textViewName"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/dispTextID"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginTop="8dp"
         android:ems="10"
         android:fontFamily="@font/archivo"
         android:gravity="center"
+        android:hint="id"
         android:textColor="@color/white"
-        android:textSize="21dp"
+        android:textSize="25dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/dispTextName"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textViewID"
-        app:layout_constraintTop_toBottomOf="@+id/dispTextName" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.481" />
 
     <TextView
-        android:id="@+id/dispTextCourse"
+        android:id="@+id/dispLabelID"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginTop="8dp"
         android:ems="10"
         android:fontFamily="@font/archivo"
         android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="21dp"
+        android:text="ID number"
+        android:textColor="@color/black"
+        android:textSize="18dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/dispTextID"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textViewCourse"
-        app:layout_constraintTop_toBottomOf="@+id/dispTextID" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.518" />
 
     <TextView
-        android:id="@+id/dispTextYrLvl"
+        android:id="@+id/dispTextName"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginTop="10dp"
         android:ems="10"
         android:fontFamily="@font/archivo"
         android:gravity="center"
+        android:hint="full name"
         android:textColor="@color/white"
-        android:textSize="21dp"
+        android:textSize="25dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/dispTextCourse"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textViewYear"
-        app:layout_constraintTop_toBottomOf="@+id/dispTextCourse" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.634" />
 
     <TextView
-        android:id="@+id/dispTextAddress"
+        android:id="@+id/dispLabelName"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginTop="10dp"
         android:ems="10"
         android:fontFamily="@font/archivo"
         android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="21dp"
+        android:text="Full Name"
+        android:textColor="@color/black"
+        android:textSize="18dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/dispTextYrLvl"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textViewAddress"
-        app:layout_constraintTop_toBottomOf="@+id/dispTextYrLvl" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.671" />
 
-    <TextView
-        android:id="@+id/dispTextDate"
+    <Button
+        android:id="@+id/buttonTextNum"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginTop="8dp"
+        android:background="#00FFFFFF"
         android:ems="10"
         android:fontFamily="@font/archivo"
         android:gravity="center"
+        android:hint="number"
         android:textColor="@color/white"
-        android:textSize="21dp"
+        android:textSize="25dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/dispTextAddress"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textViewBDay"
-        app:layout_constraintTop_toBottomOf="@+id/dispTextAddress" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.784" />
 
     <TextView
-        android:id="@+id/dispTextEmailAddress"
-        android:layout_width="227dp"
+        android:id="@+id/dispLabelNum"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginTop="8dp"
         android:ems="10"
         android:fontFamily="@font/archivo"
         android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="16dp"
+        android:text="Phone Number"
+        android:textColor="@color/black"
+        android:textSize="18dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/dispTextDate"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textViewEmail"
-        app:layout_constraintTop_toBottomOf="@+id/dispTextDate" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.82" />
+
+    <Button
+        android:id="@+id/buttonAdd"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ripple_effect"
+        android:backgroundTint="@color/cyan"
+        android:text="Return"
+        android:textAllCaps="false"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.913" />
+
+    <ImageView
+        android:id="@+id/dispImage"
+        android:layout_width="190dp"
+        android:layout_height="159dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.253"
+        tools:srcCompat="@tools:sample/avatars" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
